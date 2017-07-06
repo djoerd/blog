@@ -20,4 +20,4 @@ see for instance the result for the query for
 [Wagner's Prelude to Act 3 of Lohengrin](https://drsheetmusic.com/sheet-music/Wagner%2C_Lohengrin_-_Prelude_To_Act_3).
 In the near future, Dr. Sheet Music will show advertisements from on-line 
 advertisers that provide native ads too, see also our 
-[thoughts on search advertising](2017-05-26-some-thoughts-on-search-advertising/).
+[thoughts on search advertising](/blog/2017-05-26-some-thoughts-on-search-advertising/).
