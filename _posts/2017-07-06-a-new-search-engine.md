@@ -1,0 +1,23 @@
+---
+layout: post
+title: Dr. Sheet Music: A New Search Engine
+bigimg: /img/searsia-drsheetmusic.jpg
+share-img: http://searsia.org/blog/img/searsia-drsheetmusic.jpg
+tags: [search, advertisements]
+---
+
+There's a new search engine in town: [Dr. Sheet Music](https://drsheetmusic.com) is 
+a search engine dedicated solely to sheet music. It retrieves results from more than 
+50 sites that provide sheet music, both sites that provide copyright-free sheets as 
+sites from which you can buy sheet music for the latest popular songs. 
+Give it a try at: https://drsheetmusic.com
+
+![Dr. Sheet Music](https://drsheetmusic.com/images/drsheetmusic-banner.jpg)
+
+Dr. Sheet Music will occasionally show advertisements for charities from
+[CharityChoice](http://charitychoice.co.uk) and [GoedeDoelen](http://goededoelen.nl),
+see for instance the query for 
+[Wagner's Prelude to Act 3 of Lohengrin](https://drsheetmusic.com/sheet-music/Wagner%2C_Lohengrin_-_Prelude_To_Act_3).
+In the near future, Dr. Sheet Music should also show advertisements from on-line 
+advertisers that provide native ads, see also our 
+[thoughts on search advertising](2017-05-26-some-thoughts-on-search-advertising/).
