@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Dr Sheet Music: A New Search Engine in Town
+title: Dr Sheet Music, A New Search Engine in Town
 bigimg: /img/searsia-drsheetmusic.jpg
 share-img: http://searsia.org/blog/img/searsia-drsheetmusic.jpg
-tags: [search, advertisements]
+tags: [advertisements]
 ---
 
 There's a new search engine in town: [Dr. Sheet Music](https://drsheetmusic.com) is 
