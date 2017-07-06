@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dr. Sheet Music: A New Search Engine
+title: Dr Sheet Music: A New Search Engine in Town
 bigimg: /img/searsia-drsheetmusic.jpg
 share-img: http://searsia.org/blog/img/searsia-drsheetmusic.jpg
 tags: [search, advertisements]
@@ -16,8 +16,8 @@ Give it a try at: https://drsheetmusic.com
 
 Dr. Sheet Music will occasionally show advertisements for charities from
 [CharityChoice](http://charitychoice.co.uk) and [GoedeDoelen](http://goededoelen.nl),
-see for instance the query for 
+see for instance the result for the query for 
 [Wagner's Prelude to Act 3 of Lohengrin](https://drsheetmusic.com/sheet-music/Wagner%2C_Lohengrin_-_Prelude_To_Act_3).
-In the near future, Dr. Sheet Music should also show advertisements from on-line 
-advertisers that provide native ads, see also our 
+In the near future, Dr. Sheet Music will show advertisements from on-line 
+advertisers that provide native ads too, see also our 
 [thoughts on search advertising](2017-05-26-some-thoughts-on-search-advertising/).
