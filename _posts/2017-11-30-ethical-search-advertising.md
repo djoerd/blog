@@ -84,11 +84,12 @@ configuration file (which runs on-line [here][10]).
 }
 ```
 
+
 To use this configuration file, get your Associate Id, Access Key and Secret Key from Amazon's affiliate program
 and fill them in under `"privateparameters"`.
 The `"apitemplate"` contains the URL parameter `SearchIndex=Music` to restrict the search to include only 
 products in Amazon's Music category.
-One of the keys of `"extractors"` is `"tags"` with as its value `"'advertisement'"` (It's value needs to be an
+One of the keys of `"extractors"` is `"tags"` with as its value `"'advertisement'"` (the value needs to be an
 XPath query, hence the single quote to denote the result is a constant string): This will add the key value
 pair `"tags": "advertisement"` to the search output, which is used by the Searsia Client to show advertisements
 differently from ordinary search results.
@@ -96,9 +97,8 @@ Most of the attributes of this configuration file are also supported by [Searsia
 `"signature"`, which signs the API request with the Secret Key using a [HMAC-SHA256 signature][12] as required by Amazon.
 Testing a Searsia engine in SearsiaServer version 1 is easy and can be done as follows:
 
-~~~
-java -jar searsiaserver.jar -m amazon.json -t json
-~~~
+        java -jar searsiaserver.jar -m amazon.json -t json
+
 
 **eBay Partner Network**
 
@@ -122,8 +122,8 @@ configuration file (which runs on-line [here][15]).
       "url": "./viewItemURL",
     },
     "privateparameters": {
-      "appId": "MISSING VALue",
-      "affiliateId": "MISSING VALUE"
+      "appId": "VALUE MISSING",
+      "affiliateId": "VALUE MISSING"
     },
     "mimetype": "application/xml"
   },
@@ -146,17 +146,6 @@ As an affiliate at ShareASale, you have to apply to the program of a merchant. A
 for sheet music, we applied to the program of [Music Box Attic][17], a wonderful site that offers 
 music boxes with custom tunes.
 
-Unlike the affiliate programs of Amazon and eBay, ShareASale does not offer an API to search the 
-products of Music Box Attic. Instead, it offers a comma-separated file with products. To search
-the advertisements of Music Box Attic, we create a Searsia configuration / result file that contains 
-all the advertisements as follows. This configuration contains the `"rerank"` parameter, which 
-instructs Searsia to search and rerank the results. The parameter value `"bestrandom"` instructs
-Searsia to retrieve the best results or, if there are no matching results, to retrieve some random
-results (so there is always an advertisement to be shown). We described this approach in our blog post:
-[A search engine in your browser][18]. In this case however, it is not the Searsia Client that reranks the 
-results, but the Searsia Server. That's why the on-line engine at Dr. Sheet Music -- [here][19] -- only 
-shows the top 10 results for a query.
- 
 ```json
 {
   "hits": [
@@ -186,6 +175,18 @@ shows the top 10 results for a query.
 }
 ```
 
+Unlike the affiliate programs of Amazon and eBay, ShareASale does not offer an API to search the 
+products of Music Box Attic. Instead, it offers a comma-separated file with products. To search
+the advertisements of Music Box Attic, we create a Searsia configuration / result file that contains 
+all the advertisements as follows. This configuration contains the `"rerank"` parameter, which 
+instructs Searsia to search and rerank the results. The parameter value `"bestrandom"` instructs
+Searsia to retrieve the best results or, if there are no matching results, to retrieve some random
+results (so there is always an advertisement to be shown). We described this approach in our blog post:
+[A search engine in your browser][18]. In this case however, it is not the Searsia Client that reranks the 
+results, but the Searsia Server. That's why the on-line engine at Dr. Sheet Music -- [here][19] -- only 
+shows the top 10 results for a query.
+ 
+
 ### Affiliate of charities: CharityChoice
 
 Suppose you do not want to monitize your search engine at all, but instead want
@@ -193,11 +194,6 @@ your search engine to have some positive societal impact. No problem, you decide
 what is shown as an advertisement in Searsia! Below you find a configuration file
 for [CharityChoice][20], a site with a search engine for 160,000 registered UK charities.
 The configuration file below shows how Searsia scrapes search results from CharityChoice.
-Here, the `"rerank"` parameter is again used to rerank, but in this case only the top
-results already provided by CharityChoice are reranked. The parameter `"maxqueriesperday"`
-instructs Searsia to send no more then 150 queries per day to CharityChoice, so the 
-search engine will not put too much load on the site. Our search engine might show results
-from the sample index if the maximum is reached.
 
 ```json
 {
@@ -223,6 +219,12 @@ from the sample index if the maximum is reached.
   "searsia": "v1.0.0",
 }
 ```
+
+Here, the `"rerank"` parameter is again used to rerank, but in this case only the top
+results already provided by CharityChoice are reranked. The parameter `"maxqueriesperday"`
+instructs Searsia to send no more then 150 queries per day to CharityChoice, so the 
+search engine will not put too much load on the site. Our search engine might show results
+from the sample index if the maximum is reached.
 
 ## Sheet Music & Advertisements
 
