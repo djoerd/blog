@@ -222,7 +222,7 @@ from the sample index if the maximum is reached.
   },
   "searsia": "v1.0.0",
 }
-
+```
 
 ## Sheet Music & Advertisements
 
@@ -236,18 +236,20 @@ shows advertisements for charities, including CharityChoice and GoedeDoelen.nl (
 site for Dutch charities). A query for [amazon][21] shows two affiliate programs and
 two charity advertisements on a single page.
 
-## Conclusion
-
-We showed that ethical search advertising is possible, and we showed how to configure
-Searsia to show advertisements from affiliate programs, affiliate networks and
-charities. 
-
-Searsia can be configured to show advertisements without third-party tracking cookies, 
-web bugs, and other tracking code. We also make sure that user information
+Dr. Sheet Music is configured to show advertisements without third-party tracking cookies, 
+web bugs, and other tracking code. Searsia makes sure that user information
 is not leaked to e-commerce sites that run affiliate programs, for instance by
 downloading images and banners via the Searsia server, and by following a strict 
 HTTP referrer policy. We described this in our previous post on 
 [privacy implications of federated search][22].
+
+
+## Conclusion
+
+We showed that ethical search advertising is possible, and we showed how to configure
+Searsia to show advertisements from a diverse set of affiliate programs, affiliate 
+networks and charities. 
+There are [many more affiliate programs and networks][23] to choose from.
 
 As a final "advertisement" for ethical advertising it is good to note that 
 currently, Dr. Sheet Music's advertisement are _not_ blocked by ad blockers like 
@@ -258,7 +260,7 @@ the audience for your search ads.
 
 ## Acknowledgements
 
-We are grateful to the [Vietsch Foundation][23] and [NLnet Foundation][24] for 
+We are grateful to the [Vietsch Foundation][24] and [NLnet Foundation][25] for
 funding our work on search advertising without tracking users.
 
 [1]: https://en.wikipedia.org/wiki/Cost_per_impression "Cost per impression on Wikipedia"
@@ -283,6 +285,7 @@ funding our work on search advertising without tracking users.
 [20]: http://www.charitychoice.co.uk/ "Charity Choice"
 [21]: https://drsheetmusic.com/sheet-music/amazon "Dr. Sheet Music - amazon"
 [22]: /blog/2017-10-02-privacy-implications-of-federated-search/ "Privacy implications of federated search"
-[23]: http://vietsch-foundation.org/ "Vietsch Foundation"
-[24]: https://nlnet.nl/ "NLnet Foundation"
+[23]: https://www.highstreet.io/affiliate-networks-europe-quick-list/ "Affiliate networks in Europe: a short list"
+[24]: http://vietsch-foundation.org/ "Vietsch Foundation"
+[25]: https://nlnet.nl/ "NLnet Foundation"
 
