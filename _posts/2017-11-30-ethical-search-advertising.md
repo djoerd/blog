@@ -7,17 +7,16 @@ share-img: http://searsia.org/blog/img/searsia-underwater.jpg
 tags: [advertisements, privacy]
 ---
 
-The past months we investigated ways for small search engines to provide search advertisements without
+The past months Searsia investigated ways for small search engines to provide search advertisements without
 participating in the large advertisement networks of Google and Facebook, and more importantly, without
 the need for small search engines to track their users. Large advertisement networks operate by [pay-per-impression][1]
 or [pay-per-click][2] schemes that need third-party [tracking bugs][3] and third-party [cookies][4] to track 
 users, even if they are not actively engaging with the advertisements. Large advertisement networks try to
 track their user also outside their own web sites by running code on other sites, such as like buttons 
 (Facebook) and analytics code (Google). Tracking users is needed to provide targeted advertisements, but 
-but also it is needed to combat [click fraud][5].
+it is also needed to combat [click fraud][5].
 
-> Our **goal** with this work is to give small sites that run a search engine the means to monitize 
-> their site using advertisements without the need to track their users with third-party trackers.
+_Our solution provides sites that run their own search engine the means to include advertisements without the need to track their users with third-party trackers._
 
 
 ## Affiliate programs as ethical advertising
@@ -31,16 +30,18 @@ tracking-based advertisements.
 > product on your site that contains your affiliate identifier. 
 
 Because we run our affiliate advertisements in a search engine, we will still show _targeted_ 
-advertisements. If the users types "car", we show a car advertisement. The ad is based on the keyword, 
+advertisements. If the user types "car", we show a car advertisement. The ad is based on the keyword, 
 not on the person, so it does not involve tracking.
 
 
 ## Affiliate programs in Searsia: example implementations
 
-In what follows, we show the configuration files for 5 search advertisement programs, based on
-affiliate programs of multinational corporations like Amazon, based on affiliate networks like
-ShareASale, and based on any other information that we would like to advertise.
-Our configuration files are based on [Searsia Server version 1.0][7], which is not yet released,
+In what follows, we show the configuration files for 5 search advertisement programs. The
+examples use: 
+_1)_ affiliate programs of multinational corporations like Amazon, 
+_2)_ affiliate networks like ShareASale, and 
+_3)_ any other information that we would like to advertise.
+Our configuration files are based on [Searsia Server version 1.0][7], which is not released yet,
 but already available on Github. The affiliate programs described here are demonstrated by
 [Dr. Sheet Music][8], a federated search engine for sheet music.
 
@@ -89,10 +90,12 @@ To use this configuration file, get your Associate Id, Access Key and Secret Key
 and fill them in under `"privateparameters"`.
 The `"apitemplate"` contains the URL parameter `SearchIndex=Music` to restrict the search to include only 
 products in Amazon's Music category.
+
 One of the keys of `"extractors"` is `"tags"` with as its value `"'advertisement'"` (the value needs to be an
 XPath query, hence the single quote to denote the result is a constant string): This will add the key value
 pair `"tags": "advertisement"` to the search output, which is used by the Searsia Client to show advertisements
 differently from ordinary search results.
+
 Most of the attributes of this configuration file are also supported by [Searsia Server version 0.4][11], except
 `"signature"`, which signs the API request with the Secret Key using a [HMAC-SHA256 signature][12] as required by Amazon.
 Testing a Searsia engine in SearsiaServer version 1 is easy and can be done as follows:
@@ -103,10 +106,11 @@ Testing a Searsia engine in SearsiaServer version 1 is easy and can be done as f
 **eBay Partner Network**
 
 Another big online ecommerce site, eBay, offers an affiliate program called the [eBay Partner Network][13]. 
-eBay, too, offers an [Shopping Services API][14]. The API can be configured as a Searsia engine with the following
+Like Amazon, eBay also offers a [Shopping Services API][14]. The API can be configured as a Searsia engine with the following
 configuration file (which runs on-line [here][15]).
 
 ~~~json
+{
   "resource": {
     "id": "ebay",
     "name": "eBay",
@@ -119,7 +123,7 @@ configuration file (which runs on-line [here][15]).
       "image": "./galleryURL",
       "description":".//categoryName|.//conditionDisplayName|.//currentPrice/@currencyId|.//currentPrice",
       "price": "concat(string(.//currentPrice/@currencyId),' ',string(.//currentPrice))",
-      "url": "./viewItemURL",
+      "url": "./viewItemURL"
     },
     "privateparameters": {
       "appId": "VALUE MISSING",
@@ -145,6 +149,11 @@ affiliates (that publish the advertisements, i.e., us) and users (the users of o
 As an affiliate at ShareASale, you have to apply to the program of a merchant. As we run a search engine
 for sheet music, we applied to the program of [Music Box Attic][17], a wonderful site that offers 
 music boxes with custom tunes.
+
+Unlike the affiliate programs of Amazon and eBay, ShareASale does not offer an API to search the 
+products of Music Box Attic. Instead, it offers a comma-separated file with products. To search
+the advertisements of Music Box Attic, we create a Searsia configuration / result file that contains 
+all the advertisements as follows. 
 
 ```json
 {
@@ -175,23 +184,23 @@ music boxes with custom tunes.
 }
 ```
 
-Unlike the affiliate programs of Amazon and eBay, ShareASale does not offer an API to search the 
-products of Music Box Attic. Instead, it offers a comma-separated file with products. To search
-the advertisements of Music Box Attic, we create a Searsia configuration / result file that contains 
-all the advertisements as follows. This configuration contains the `"rerank"` parameter, which 
+This configuration contains the `"rerank"` parameter, which 
 instructs Searsia to search and rerank the results. The parameter value `"bestrandom"` instructs
 Searsia to retrieve the best results or, if there are no matching results, to retrieve some random
-results (so there is always an advertisement to be shown). We described this approach in our blog post:
-[A search engine in your browser][18]. In this case however, it is not the Searsia Client that reranks the 
+results (so there is always an advertisement to be shown).
+
+We described this approach in our blog post: [A search engine in your browser][18].
+In this case however, it is not the Searsia Client that reranks the 
 results, but the Searsia Server. That's why the on-line engine at Dr. Sheet Music -- [here][19] -- only 
 shows the top 10 results for a query.
  
 
 ### Affiliate of charities: CharityChoice
 
-Suppose you do not want to monitize your search engine at all, but instead want
-your search engine to have some positive societal impact. No problem, you decide
-what is shown as an advertisement in Searsia! Below you find a configuration file
+Searsia provides full control of what is shown in advertisements. 
+If you do not want to make money with your search engine, but instead want
+to have some positive societal impact, you might advertise for instance charities.
+Below you find a configuration file
 for [CharityChoice][20], a site with a search engine for 160,000 registered UK charities.
 The configuration file below shows how Searsia scrapes search results from CharityChoice.
 
@@ -209,22 +218,22 @@ The configuration file below shows how Searsia scrapes search results from Chari
       "description":"./p/text()",
       "message": "'CharityChoice, the premier guide to Charities in the UK'",
       "banner": "./div[@class='banner-ad']/a/img/@src",
-      "url": "concat('http://www.charitychoice.co.uk',string(./h2/a/@href))",
+      "url": "concat('http://www.charitychoice.co.uk',string(./h2/a/@href))"
     },
     "mimetype": "text/html",
     "maxqueriesperday": 150,
     "rerank": "random",
     "urltemplate": "http://www.charitychoice.co.uk/charities/search?t=qsearch&q={q}"
   },
-  "searsia": "v1.0.0",
+  "searsia": "v1.0.0"
 }
 ```
 
 Here, the `"rerank"` parameter is again used to rerank, but in this case only the top
 results already provided by CharityChoice are reranked. The parameter `"maxqueriesperday"`
-instructs Searsia to send no more then 150 queries per day to CharityChoice, so the 
-search engine will not put too much load on the site. Our search engine might show results
-from the sample index if the maximum is reached.
+instructs Searsia to send no more then 150 queries per day to CharityChoice, so Searsia 
+will not put too much load on the site. Searsia might show cached results
+if the maximum is reached.
 
 ## Sheet Music & Advertisements
 
@@ -233,10 +242,11 @@ federated search engine that searches more than 50 search engines for sheet musi
 Dr. Sheet Music participates in the affiliate programs of Amazon, eBay, and Music 
 Box Attic (via ShareASale). The results for eBay are not marked as advertisements, 
 because they only show sheet music, but Dr. Sheet Music will receive a commission 
-from eBay if sheet music is purchased via the site. Dr. Sheet Music also occasionally
-shows advertisements for charities, including CharityChoice and GoedeDoelen.nl (a similar
-site for Dutch charities). A query for [amazon][21] shows two affiliate programs and
-two charity advertisements on a single page.
+from eBay if sheet music is purchased through the site. 
+
+Occasionally, Dr. Sheet Music shows advertisements for charities, including CharityChoice 
+and GoedeDoelen.nl (a similar site for Dutch charities). A query for [amazon][21] 
+shows two affiliate programs and two charity advertisements on a single page.
 
 Dr. Sheet Music is configured to show advertisements without third-party tracking cookies, 
 web bugs, and other tracking code. Searsia makes sure that user information
