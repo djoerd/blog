@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Searsia Version 1.0 Released
+title: Searsia Version 1.0 released
 bigimg: /img/searsia-github.jpg
 share-img: http://searsia.org/blog/img/searsia-github.jpg
 tags: [release]
@@ -24,7 +24,7 @@ The most important changes with the previous version, Version 0.4, are:
 * Results are provided from the server cache if a resource is used twice with the same query in a short period of time;
 * The server's resource selection ranking now supports paging (not yet supported by the client);
 * There is an option to sign API requests with a private key (with one implementation: Amazon's affiliate program API);
-* Both the server and the client support linear search/reranking of search results. The client's in browser search is used on http://searsia.org and by [NLNet search](https://nlnet.nl/search/); The server's linear search is used by for instance [ShareASale's affiliate program](http://searsia.org/blog/2017-11-30-ethical-search-advertising/#affiliate-networks-shareasale);
+* Both the server and the client support linear search/reranking of search results. The client's in browser search is used for [Searsia Site Search](http://searsia.org/search.html) and by [NLNet search](https://nlnet.nl/search/); The server's linear search is used by for instance [ShareASale's affiliate program](http://searsia.org/blog/2017-11-30-ethical-search-advertising/#affiliate-networks-shareasale);
 * The client supports query autocompletions, as well as advertisements in a separate column;
 * The client provides improved privacy by instructing the browser not to leak the query string in the HTTP referrer header, and by an option for proxying of search result images;
 * The server supports more API's and types of search engines, including results from various affiliate advertising programs;
