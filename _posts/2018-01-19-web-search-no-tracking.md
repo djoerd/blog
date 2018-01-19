@@ -16,25 +16,25 @@ tags: [advertisements, autocompletions, privacy, release]
 The following poem, which according to the poet, [@lifning@cybre.space](https://cybre.space/@lifning/98835409973873638), 
 has been "floating around the fediverse", perfectly describes what's wrong with the world wide web today: 
 
-    roses are red
-    violets are blue
-    in surveillance capitalism
-    a poem reads you
+        roses are red
+        violets are blue
+        in surveillance capitalism
+        a poem reads you
 
-    and shows you ads
-    for flower shops
-    and tracks your clicks
-    and never stops
+        and shows you ads
+        for flower shops
+        and tracks your clicks
+        and never stops
 
-    it cares not about
-    if privacy's harmed
-    the money is green
-    when people are farmed
+        it cares not about
+        if privacy's harmed
+        the money is green
+        when people are farmed
 
-    twitter is cyan
-    facebook is blue
-    your friends are the product
-    and so are you
+        twitter is cyan
+        facebook is blue
+        your friends are the product
+        and so are you
 
 
 ## Surveillance capitalism
